@@ -1,10 +1,7 @@
 import 'package:avatar_course2_4_azkar/core/constants.dart';
 import 'package:avatar_course2_4_azkar/core/resources/manager_colors.dart';
-import 'package:avatar_course2_4_azkar/core/resources/manager_fonts.dart';
+import 'package:avatar_course2_4_azkar/core/widgets/base_text.dart';
 import 'package:flutter/material.dart';
-import '../../core/resources/manager_font_sizes.dart';
-import '../../core/resources/manager_font_weight.dart';
-import '../../core/resources/manager_strings.dart';
 import '../../core/routes.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -44,14 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
             end: AlignmentDirectional.bottomEnd,
           ),
         ),
-        child: const Text(
-          ManagerStrings.appName,
-          style: TextStyle(
-            fontSize: ManagerFontSizes.s26,
-            fontWeight: ManagerFontWeight.w600,
-            fontFamily: ManagerFontFamily.appFont,
-          ),
-        ),
+        child: baseText(),
       ),
     );
   }
