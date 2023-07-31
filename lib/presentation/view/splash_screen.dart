@@ -27,21 +27,24 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              ManagerColors.secondaryColor,
-              ManagerColors.brown200,
-              ManagerColors.white70,
-            ],
-            begin: AlignmentDirectional.topStart,
-            end: AlignmentDirectional.bottomEnd,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        body: Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                ManagerColors.secondaryColor,
+                ManagerColors.brown200,
+                ManagerColors.white70,
+              ],
+              begin: AlignmentDirectional.topStart,
+              end: AlignmentDirectional.bottomEnd,
+            ),
           ),
+          child: baseText(),
         ),
-        child: baseText(),
       ),
     );
   }

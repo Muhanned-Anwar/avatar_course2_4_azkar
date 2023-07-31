@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import '../../core/widgets/base_text.dart';
 
 class MainScreen extends StatefulWidget {
-
   MainScreen({Key? key}) : super(key: key);
 
   @override
@@ -21,65 +20,118 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            counter++;
-          });
-        },
-        backgroundColor: ManagerColors.primaryColor,
-        child: Icon(
-          Icons.add,
-          color: ManagerColors.white,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              counter++;
+            });
+          },
+          backgroundColor: ManagerColors.primaryColor,
+          child: Icon(
+            Icons.add,
+            color: ManagerColors.white,
+          ),
         ),
-      ),
-      appBar: AppBar(
-        backgroundColor: ManagerColors.transparent,
-        elevation: Constants.appBarElevation,
-        title: baseText(),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.info,
-              color: ManagerColors.white,
-              size: ManagerIconSizes.s36,
-            ),
-          ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  ManagerAssets.azkarImage,
-                ),
-                fit: BoxFit.cover,
+        appBar: AppBar(
+          backgroundColor: ManagerColors.transparent,
+          elevation: Constants.appBarElevation,
+          title: baseText(),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.info,
+                color: ManagerColors.white,
+                size: ManagerIconSizes.s36,
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: ManagerWidth.w100,
-              height: ManagerHeight.h40,
+          ],
+        ),
+        body: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    ManagerAssets.azkarImage,
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Align(
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: ManagerColors.primaryColor,
-                borderRadius: BorderRadius.circular(
-                  ManagerRadius.r12,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: ManagerWidth.w100,
+                    height: ManagerHeight.h40,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: ManagerColors.primaryColor,
+                      borderRadius: BorderRadius.circular(
+                        ManagerRadius.r12,
+                      ),
+                    ),
+                    child: baseText(text: '$counter'),
+                  ),
+                  Container(
+                    width: ManagerWidth.w200,
+                    height: ManagerHeight.h40,
+                    decoration: BoxDecoration(
+                      color: ManagerColors.white,
+                      borderRadius: BorderRadius.circular(
+                        ManagerRadius.r12,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child: baseText(text: 'سبحان الله', color: ManagerColors.black),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              alignment: AlignmentDirectional.bottomStart,
+              margin: const EdgeInsetsDirectional.only(
+                bottom: ManagerHeight.h56,
+                start: ManagerWidth.w30,
+              ),
+              child: ElevatedButton(
+                clipBehavior: Clip.hardEdge,
+                onPressed: () {
+                  setState(() {
+                    if(counter > 0){
+                      counter--;
+                    }
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: ManagerColors.primaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      ManagerRadius.r12,
+                    ),
+                  ),
+                  minimumSize: const Size(
+                    ManagerWidth.w40,
+                    ManagerHeight.h56,
+                  ),
+                ),
+                child: Icon(
+                  Icons.remove,
+                  color: ManagerColors.white,
                 ),
               ),
-              child: baseText(text: '$counter'),
-            ),
-          ),
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
