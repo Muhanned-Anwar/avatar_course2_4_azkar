@@ -1,10 +1,10 @@
-import 'package:avatar_course2_4_azkar/presentation/main_screen.dart';
+import 'package:avatar_course2_4_azkar/presentation/view/main_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'core/resources/manager_font_sizes.dart';
 import 'core/routes.dart';
-import 'presentation/about_screen.dart';
-import 'presentation/splash_screen.dart';
+import 'presentation/view/about_screen.dart';
+import 'presentation/view/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

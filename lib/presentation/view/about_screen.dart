@@ -1,6 +1,6 @@
 import 'package:avatar_course2_4_azkar/core/resources/manager_strings.dart';
 import 'package:flutter/material.dart';
-import '../core/resources/manager_font_sizes.dart';
+import '../../core/resources/manager_font_sizes.dart';
 
 class AboutScreen extends StatefulWidget {
   const AboutScreen({Key? key}) : super(key: key);
