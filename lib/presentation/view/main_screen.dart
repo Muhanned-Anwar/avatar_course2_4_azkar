@@ -17,6 +17,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int counter = 0;
+  String initPopUpValue = 'سبحان الله';
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,40 @@ class _MainScreenState extends State<MainScreen> {
                 color: ManagerColors.white,
                 size: ManagerIconSizes.s36,
               ),
+            ),
+            PopupMenuButton(
+              iconSize: 34,
+              elevation: 10,
+              color: Colors.white70,
+              initialValue: initPopUpValue,
+              itemBuilder: (context) => const [
+                PopupMenuItem(
+                  value: 'سبحان الله',
+                  child: Text('سبحان الله'),
+                ),
+                PopupMenuItem(
+                  value: 'الحمد لله',
+                  child: Text('الحمد لله'),
+                ),
+                PopupMenuItem(
+                  value: 'لا اله الا الله',
+                  child: Text('لا اله الا الله'),
+                ),
+                PopupMenuItem(
+                  value: 'الله اكبر',
+                  child: Text('الله اكبر'),
+                ),
+                PopupMenuItem(
+                  value: 'استغفر الله العظيم',
+                  child: Text('استغفر الله العظيم'),
+                ),
+              ],
+              onSelected: (value) {
+               setState(() {
+                 initPopUpValue = value;
+                 counter = 0;
+               });
+              },
             ),
           ],
         ),
@@ -92,7 +127,10 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     ),
                     alignment: Alignment.center,
-                    child: baseText(text: 'سبحان الله', color: ManagerColors.black),
+                    child: baseText(
+                      text: initPopUpValue,
+                      color: ManagerColors.black,
+                    ),
                   )
                 ],
               ),
@@ -107,7 +145,7 @@ class _MainScreenState extends State<MainScreen> {
                 clipBehavior: Clip.hardEdge,
                 onPressed: () {
                   setState(() {
-                    if(counter > 0){
+                    if (counter > 0) {
                       counter--;
                     }
                   });
