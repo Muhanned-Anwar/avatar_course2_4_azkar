@@ -8,16 +8,32 @@ import 'package:avatar_course2_4_azkar/core/resources/manager_width.dart';
 import 'package:flutter/material.dart';
 import '../../core/widgets/base_text.dart';
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class MainScreen extends StatefulWidget {
+
+  MainScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
+        onPressed: () {
+          setState(() {
+            counter++;
+          });
+        },
+        backgroundColor: ManagerColors.primaryColor,
+        child: Icon(
+          Icons.add,
+          color: ManagerColors.white,
+        ),
       ),
       appBar: AppBar(
         backgroundColor: ManagerColors.transparent,
@@ -60,7 +76,7 @@ class MainScreen extends StatelessWidget {
                   ManagerRadius.r12,
                 ),
               ),
-              child: baseText(text: '1'),
+              child: baseText(text: '$counter'),
             ),
           ),
         ],
