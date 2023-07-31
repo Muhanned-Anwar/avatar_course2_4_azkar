@@ -1,3 +1,4 @@
 class ManagerStrings {
-  static const String bioApp = 'Azkar App';
+  static const String appName = 'Azkar App';
+  static const String aboutScreen = 'About Screen';
 }
