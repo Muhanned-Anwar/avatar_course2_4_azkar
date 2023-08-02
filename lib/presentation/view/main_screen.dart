@@ -18,6 +18,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int counter = 0;
   String initPopUpValue = 'سبحان الله';
+  int round = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,29 @@ class _MainScreenState extends State<MainScreen> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {
-              counter++;
+              if (counter >= 30 && round == 0) {
+                round = 1;
+                initPopUpValue = 'الحمد لله';
+                counter = 0;
+              } else if (counter >= 30 && round == 1) {
+                round = 2;
+                initPopUpValue = 'لا اله الا الله';
+                counter = 0;
+              } else if (counter >= 30 && round == 2) {
+                round = 3;
+                initPopUpValue = 'الله اكبر';
+                counter = 0;
+              } else if (counter >= 30 && round == 3) {
+                round = 4;
+                initPopUpValue = 'استغفر الله العظيم';
+                counter = 0;
+              } else if (counter >= 30 && round == 4) {
+                round = 0;
+                initPopUpValue = 'سبحان الله';
+                counter = 0;
+              } else {
+                counter++;
+              }
             });
           },
           backgroundColor: ManagerColors.primaryColor,
@@ -78,10 +101,10 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ],
               onSelected: (value) {
-               setState(() {
-                 initPopUpValue = value;
-                 counter = 0;
-               });
+                setState(() {
+                  initPopUpValue = value;
+                  counter = 0;
+                });
               },
             ),
           ],
